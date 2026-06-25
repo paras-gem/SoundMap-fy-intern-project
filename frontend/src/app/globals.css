@@ -1,26 +1,152 @@
-@import "tailwindcss";
-
+/* -------------------------------------------------------------
+ * 🪐 SYSTEM CORE VARIABLE MANIFEST
+ * ------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #030712;       /* Ultra-deep space graphite */
+  --bg-card: #090d16;          /* Deep carbon structural layer */
+  --border-primary: #1e293b;   /* Hard tactical baseline border */
+  --accent-neon: #10b981;      /* Radioactive Emerald telemetry accent */
+  --accent-glow: rgba(16, 185, 129, 0.15);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------------------------------------------------
+ * 🧬 GLOBAL HTML DOCUMENT SANITIZATION
+ * ------------------------------------------------------------- */
+body {
+  background-color: var(--bg-primary);
+  color: #f8fafc;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Ensure Leaflet maps lock cleanly into our premium dark canvas theme */
+.leaflet-container {
+  background: var(--bg-primary) !important;
+  font-family: inherit !important;
+}
+
+/* -------------------------------------------------------------
+ * 🛠️ PREMIUM INTERFACE NATIVE UTILITY CLASSES
+ * ------------------------------------------------------------- */
+
+/* Tactical Border Frame (Replacing Soft Glass UI with Sharp Premium Layers) */
+.cyber-panel {
+  background-color: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 0.6);
+}
+
+.cyber-panel:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 4px 4px 0px 0px rgba(16, 185, 129, 0.1);
+  transform: translate(-1px, -1px);
+}
+
+/* Core Interactive Mobile Action Trigger Target UI */
+.interactive-trigger {
+  position: relative;
+  overflow: hidden;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.interactive-trigger:active {
+  transform: scale(0.95);
+}
+
+/* Custom Layout rule to handle main panel shift on large viewports without Tailwind */
+@media (min-width: 1024px) {
+  .main-content-layout {
+    margin-left: 256px; /* Perfect clearance for the fixed sidebar framework */
+    padding: 40px !important; /* Premium wide desktop spacing padding */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* -------------------------------------------------------------
+ * 🎬 GPU-ACCELERATED APPLICATION CORE ANIMATIONS
+ * ------------------------------------------------------------- */
+
+/* 1. Pulse Telemetry Matrix (For active nodes and stream indicators) */
+@keyframes telemetryPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+    box-shadow: 0 0 12px 4px var(--accent-glow);
+  }
+}
+
+.animate-telemetry {
+  animation: telemetryPulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 2. Audio Wave Equalizer Simulation (Mandatory View Animation for Mobile Receivers) */
+@keyframes waveRiseFall {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Custom class utility to spawn dynamic rhythmic audio waves */
+.audio-wave-bar {
+  transform-origin: bottom;
+  animation: waveRiseFall 1.2s ease-in-out infinite;
+}
+
+/* Offsetting animation delays cleanly to generate realistic audio variance */
+.audio-wave-bar:nth-child(2) { animation-delay: 0.15s; animation-duration: 0.8s; }
+.audio-wave-bar:nth-child(3) { animation-delay: 0.35s; animation-duration: 1.4s; }
+.audio-wave-bar:nth-child(4) { animation-delay: 0.05s; animation-duration: 1.0s; }
+.audio-wave-bar:nth-child(5) { animation-delay: 0.2s;  animation-duration: 0.7s; }
+
+/* -------------------------------------------------------------
+ * 📱 MOBILE-FIRST VIEWPORT RESPONSIVENESS OVERRIDES
+ * ------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  /* Enforce touch-friendly tap heights across tiny interactive elements */
+  button, a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  /* Smooth scrolling across small touch screen panes */
+  main {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Soften heavy desktop translations for lower-power mobile processors */
+  .cyber-panel:hover {
+    transform: none !important;
+    box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 0.6) !important;
+  }
+}
+
+/* Custom Leaflet Dark Mode Popup Styling Override Layout */
+.leaflet-popup-content-wrapper {
+  background: #020617 !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: #020617 !important;
+  border: 1px solid #1e293b !important;
 }

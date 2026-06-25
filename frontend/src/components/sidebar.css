@@ -1,0 +1,142 @@
+/* -------------------------------------------------------------
+ * 🪐 SYSTEM CORE VARIABLE MANIFEST
+ * ------------------------------------------------------------- */
+:root {
+  --bg-primary: #030712;
+  --bg-card: #090d16;
+  --border-primary: #1e293b;
+  --accent-neon: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.15);
+
+  /* Expanded tokens to replace Tailwind utilities */
+  --bg-slate-950: #020617;
+  --bg-slate-900: #0f172a;
+  --border-slate-800: #1e293b;
+  --border-emerald-500-40: rgba(16, 185, 129, 0.4);
+  --shadow-slate: rgba(15, 23, 42, 0.6);
+  --shadow-emerald: rgba(16, 185, 129, 0.1);
+}
+
+/* -------------------------------------------------------------
+ * 🧬 GLOBAL HTML DOCUMENT SANITIZATION
+ * ------------------------------------------------------------- */
+body {
+  background-color: var(--bg-primary);
+  color: #f8fafc;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.leaflet-container {
+  background: var(--bg-primary) !important;
+  font-family: inherit !important;
+}
+
+/* -------------------------------------------------------------
+ * 🛠️ PREMIUM INTERFACE UTILITY CLASSES
+ * ------------------------------------------------------------- */
+
+/* Tactical Border Frame (Replacing Soft Glass UI with Sharp Premium Layers) */
+.cyber-panel {
+  background-color: var(--bg-slate-950);
+  border: 1px solid var(--border-slate-800);
+  border-radius: 0.75rem;
+  transition: all 300ms;
+  box-shadow: 4px 4px 0px 0px var(--shadow-slate);
+}
+
+.cyber-panel:hover {
+  border-color: var(--border-emerald-500-40);
+  box-shadow: 4px 4px 0px 0px var(--shadow-emerald);
+  transform: translate(-1px, -1px);
+}
+
+/* Core Interactive Mobile Action Trigger Target UI */
+.interactive-trigger {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-slate-900);
+  border: 1px solid var(--border-slate-800);
+  transition: all 200ms;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.interactive-trigger:active {
+  transform: scale(0.95);
+}
+
+/* -------------------------------------------------------------
+ * 🎬 GPU-ACCELERATED APPLICATION CORE ANIMATIONS
+ * ------------------------------------------------------------- */
+
+/* 1. Pulse Telemetry Matrix (For active nodes and stream indicators) */
+@keyframes telemetryPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+    box-shadow: 0 0 12px 4px var(--accent-glow);
+  }
+}
+
+.animate-telemetry {
+  animation: telemetryPulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 2. Audio Wave Equalizer Simulation (Mandatory View Animation for Mobile Receivers) */
+@keyframes waveRiseFall {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.audio-wave-bar {
+  transform-origin: bottom;
+  animation: waveRiseFall 1.2s ease-in-out infinite;
+}
+
+.audio-wave-bar:nth-child(2) { animation-delay: 0.15s; animation-duration: 0.8s; }
+.audio-wave-bar:nth-child(3) { animation-delay: 0.35s; animation-duration: 1.4s; }
+.audio-wave-bar:nth-child(4) { animation-delay: 0.05s; animation-duration: 1.0s; }
+.audio-wave-bar:nth-child(5) { animation-delay: 0.2s;  animation-duration: 0.7s; }
+
+/* -------------------------------------------------------------
+ * 📱 MOBILE-FIRST VIEWPORT RESPONSIVENESS OVERRIDES
+ * ------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  button, a {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  main {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cyber-panel:hover {
+    transform: none !important;
+    box-shadow: 4px 4px 0px 0px var(--shadow-slate) !important;
+  }
+}
+
+/* Custom Leaflet Dark Mode Popup Styling Override Layout */
+.leaflet-popup-content-wrapper {
+  background: #020617 !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: #020617 !important;
+  border: 1px solid #1e293b !important;
+}

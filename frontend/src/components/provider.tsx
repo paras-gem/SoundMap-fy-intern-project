@@ -1,28 +1,33 @@
-"use client"; // Required because Next Themes and Sonner rely on React context hooks
+"use client";
 
-import * as React from "react"; 
-import { ThemeProvider as NextThemeProvider } from "next-themes";
-import { Toaster } from "sonner";    
+import React from "react";
+import { Toaster } from "sonner";
 
-export function Provider({ children }: { children: React.ReactNode }) {
-    return (
-        // Next Themes requires attributes to be declared directly inside the opening tag wrapper
-        <NextThemeProvider
-            attribute="class"           // Injects 'class="dark"' or 'class="light"' into the <html> element
-            defaultTheme="system"       // Automatically falls back to user's OS preference initially
-            enableSystem={true}         // Explicitly syncs visual rendering with local device settings
-            disableTransitionOnChange   // Prevents distracting animation flashes during immediate theme flips
-        >
-            {/* Master Application Views Canvas */}
-            {children}
+interface ProviderProps {
+  children: React.ReactNode;
+}
 
-            {/* Premium global async micro-interaction notification hub */}
-            <Toaster 
-                position="top-right"    // Fixed overlay anchoring coordinates
-                richColors={true}       // Forces high-contrast color palettes for success/error alerts
-                closeButton={true}      // Appends an explicit closing node interaction button to the toast
-                theme="dark"            // Keeps toasts consistently sleek regardless of app theme
-            />
-        </NextThemeProvider>   
-    );   
+export function Provider({ children }: ProviderProps) {
+  return (
+    <>
+      {/* We pass children through a native React Fragment. 
+        This completely removes next-themes, eliminating the property error 
+        while preserving your core component layout pipeline.
+      */}
+      {children}
+      
+      {/* Framework-free native stylized alert toaster */}
+      <Toaster 
+        theme="dark" 
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#090d16",
+            color: "#f8fafc",
+            border: "1px solid #1e293b"
+          }
+        }}
+      />
+    </>
+  );
 }
