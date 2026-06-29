@@ -17,7 +17,6 @@ SoundMap is an interactive music discovery platform that lets users explore popu
 ### Frontend
 
 * Next.js
-* Tailwind CSS
 * Leaflet.js
   
 
